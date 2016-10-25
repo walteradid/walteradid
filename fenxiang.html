@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/busy/css/Normalize.css" />
+    <link href="/busy/js/首页/CSS全屏轮播/com/css.css" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+    <!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" type="text/css" href="/busy/js/加载/files/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="/busy/js/加载/files/loaders.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="/busy/js/新闻/201609211657/css/reset.css" />-->
+    <link rel="stylesheet" type="text/css" href="/busy/js/新闻/201609211657/css/htmleaf-demo.css">
+    <!--<link rel="stylesheet" type="text/css" href="/busy/css/style.css"> 这个css文件会导致 p 变化-->
+    <link rel="stylesheet" type="text/css" href="/busy/css/style.css">
+
+
+    <!--==================================================================作品插件展示-->
+    <link rel="stylesheet" type="text/css" href="/busy/js/作品/css/CSSreset.min.css" />
+    <link rel="stylesheet" type="text/css" href="/busy/js/作品/css/default.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/busy/js/作品/css/als_demo.css" />
+    <!--[if IE]>
+    <!--<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>-->
+    <![endif]-->
+    <!--==================================================================作品插件展示-->
+
+
+<style>
+     /*   =======================================================
+          *新闻插件的样式*
+          ===============插件引入的样式*/
+
+
+
+     .poster-main{
+         position: relative;
+         margin: 50px auto;
+         box-shadow: 5px 26px 24px 3px;
+     }
+     .poster-main .poster-list .poster-item{
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 600px;
+         height: 350px;
+         /*box-shadow: 0px 30px 50px 35px;*/
+     }
+
+
+
+     .poster-main .poster-btn{
+         position: absolute;
+         top: 0;
+         cursor: pointer;
+     }
+     /*.poster-main .poster-prev-btn{*/
+
+         /*left: 0px;*/
+
+         /*background: url("/busy/js/新闻/201609211657/img/l.png") no-repeat center center;*/
+
+
+     /*}*/
+     /*.poster-main .poster-next-btn{*/
+         /*right: 0;*/
+         /*background: url("/busy/js/新闻/201609211657/img/r.png") no-repeat center center;*/
+
+     /*}*/
+
+
+
+
+
+
+
+     .bottonleft{
+         /*position: absolute;*/
+         display: inline-block;
+         float:left;
+         margin-left: 106%;
+         padding-top: 350px;
+         cursor: pointer;
+         background: url("/busy/js/新闻/201609211657/img/r.png") no-repeat center center;
+         z-index:10000000000000000000;
+         width: 96px;
+         height: 50px;
+         /*background-color: red;*/
+     }
+
+
+     .bottonleft:hover{
+         background: url("/busy/js/新闻/201609211657/img/tr.png") no-repeat center center;
+         /*margin-left: 106%;*/
+         /*padding-top: 350px;*/
+     }
+
+     .bottonright{
+         /*position: absolute;*/
+         display: inline-block;
+         float:left;
+         margin-left: -25%;
+         padding-top: 350px;
+         cursor: pointer;
+         background: url("/busy/js/新闻/201609211657/img/l.png") no-repeat center center;
+         /*background-color: red;*/
+         width: 96px;
+         height: 50px;
+         z-index:10000000000000000000;
+     }
+
+     .bottonright:hover{
+         background: url("/busy/js/新闻/201609211657/img/tl.png") no-repeat center center;
+         /*margin-left: -25%;*/
+         /*padding-top: 350px;*/
+     }
+
+
+     /*   =======================================================
+         *新闻插件的样式*
+         ===============插件引入的样式*/
+
+
+
+
+
+
+
+     body {
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	min-height: 757px;
+        }
+        /* Slider wrapper*/
+        .css-slider-wrapper {
+            display: block;
+            background: #FFF;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        /* Slider */
+        .slider {
+            width: 100%;
+            height: 100%;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 1;
+            z-index: 0;
+            display: flex;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            flex-direction: row;
+            flex-wrap: wrap;
+            -webkit-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            -webkit-transition: -webkit-transform 1600ms;
+            transition: -webkit-transform 1600ms, transform 1600ms;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        /* each slide backgound color */
+        .slide1 {
+            /*background: #00bcd7;*/
+            background:url("/busy/素材/momo/首页/背景 拷贝.jpg");
+            background-size: cover;
+            left: 0;
+
+        }
+        .slide2 {
+            /*background: #009788;*/
+            background:url("/busy/素材/momo/首页/背景 拷贝2.jpg");
+            background-size: cover;
+            left: 100%
+        }
+        .slide3 {
+            /*background: #ff5608;*/
+
+            background:url("/busy/素材/momo/首页/背景 拷贝2.jpg");
+            background-size: cover;
+            left: 200%;
+        }
+        .slide4 {
+            /*background: #607d8d;*/
+            background:url("/busy/素材/momo/首页/背景 拷贝.jpg");
+            background-size: cover;
+            left: 300%;
+        }
+        .slider > div {
+            text-align: center;
+        }
+        /* Slider inner slide effect */
+        .slider h2 {
+            color: #FFF;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 45px;
+            line-height: 120%;
+            opacity: 0;
+            -webkit-transform: translateX(500px);
+            transform: translateX(500px);
+        }
+        .slider .button {
+            color: #FFF;
+            padding: 5px 30px;
+            background: rgba(255,255,255,0.3);
+            text-decoration: none;
+            opacity: 0;
+            font-size: 15px;
+            line-height: 30px;
+            display: inline-block;
+            -webkit-transform: translateX(-500px);
+            transform: translateX(-500px);
+        }
+        .slider h2, .slider .button {
+            -webkit-transition: opacity 800ms, -webkit-transform 800ms;
+            transition: transform 800ms, opacity 800ms;
+            -webkit-transition-delay: 1s; /* Safari */
+            transition-delay: 1s;
+        }
+        /* Next and Preive arrow */
+        .control {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            z-index: 55;
+        }
+        .control label {
+            z-index: 0;
+            display: none;
+            text-align: center;
+            line-height: 50px;
+            font-size: 50px;
+            color: #FFF;
+            cursor: pointer;
+            opacity: 0.2;
+        }
+        .control label:hover {
+            opacity: 0.5;
+        }
+        .next {
+            right: 1%;
+        }
+        .previous {
+            left: 1%;
+        }
+        /* Slider Pagger */
+        .slider-pagination {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+        }
+        .slider-pagination label {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            margin: 0 2px;
+            border: solid 1px rgba(255,255,255,0.4);
+            cursor: pointer;
+        }
+        /* Slider Pagger arrow event */
+        .slide-radio1:checked ~ .next .numb2,
+        .slide-radio2:checked ~ .next .numb3,
+        .slide-radio3:checked ~ .next .numb4,
+        .slide-radio2:checked ~ .previous .numb1,
+        .slide-radio3:checked ~ .previous .numb2,
+        .slide-radio4:checked ~ .previous .numb3 {
+            display: block;
+            z-index: 1
+        }
+        /* Slider Pagger event */
+        .slide-radio1:checked ~ .slider-pagination .page1,
+        .slide-radio2:checked ~ .slider-pagination .page2,
+        .slide-radio3:checked ~ .slider-pagination .page3,
+        .slide-radio4:checked ~ .slider-pagination .page4 {
+            background: rgba(255,255,255,1)
+        }
+        /* Slider slide effect */
+        .slide-radio1:checked ~ .slider {
+            -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+        }
+        .slide-radio2:checked ~ .slider {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+        .slide-radio3:checked ~ .slider {
+            -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+        }
+        .slide-radio4:checked ~ .slider {
+            -webkit-transform: translateX(-300%);
+            transform: translateX(-300%);
+        }
+        .slide-radio1:checked ~ .slide1 h2,
+        .slide-radio2:checked ~ .slide2 h2,
+        .slide-radio3:checked ~ .slide3 h2,
+        .slide-radio4:checked ~ .slide4 h2,
+        .slide-radio1:checked ~ .slide1 .button,
+        .slide-radio2:checked ~ .slide2 .button,
+        .slide-radio3:checked ~ .slide3 .button,
+        .slide-radio4:checked ~ .slide4 .button {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1
+        }
+#shiyan {
+	position: relative;
+	top: 43px;
+}
+#my_center #center img {
+	position: absolute;
+	left: 44.5%;
+}
+#footer #copyright {
+	position: relative;
+	top: 10px;
+}
+#footer {
+	width: 100%;
+	height: 50px;
+	background-color: #1F5352;
+	color: #FFFFFF;
+	font-family: "微软雅黑", Arial;
+	font-size: 11pt;
+	text-align: center;
+	text-decoration: none;
+	background-size: cover;
+	position: absolute;
+	display: block;
+	left: 0px;
+	bottom: 0px;
+}
+#xianshi #butoumingbeijing {
+	position: absolute;
+	top: 34%;
+}
+#xianshi #butoumingbeijing p {
+	text-align: center;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+#xianshi #butoumingbeijing {
+	text-align: center;
+}
+#ozero #sai0 {
+	font-family: "微软雅黑";
+}
+#one #sai1 {
+	font-family: "微软雅黑";
+}
+#two #sai2 {
+	font-family: "微软雅黑";
+}
+#four #sai4 {
+	font-family: "微软雅黑";
+}
+#my_center #center {
+	font-family: "微软雅黑";
+}
+#five #sai5 {
+	font-family: "微软雅黑";
+}
+#eight .centernext {
+	font-family: "微软雅黑";
+}
+#six #sai6 {
+	font-family: "微软雅黑";
+}
+#seven #sai7 {
+	font-family: "微软雅黑";
+}
+#biaoti {
+	top: 15px;
+	position: relative;
+}
+#xianshi {
+}
+#xianshi div {
+	background-image: url(img/%E5%9B%BE%E5%B1%82%200.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 76%;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	position: absolute;
+}
+#geduan {
+	height: 25px;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+}
+#xianshi #beijing #xianzhi {
+	height: 100%;
+	width: 64%;
+	position: absolute;
+	left: 18%;
+	max-height: 100%;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+}
+table tbody tr {
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+}
+#beijing #xianzhi #tupian {
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	overflow-y: auto;
+	height: 100%;
+}
+#xianzhi #tupian #tupiannei {
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	position: absolute;
+	top: 20px;
+	height: 100%;
+	width: 100%;
+	bottom: 20px;
+}
+#xianshi #beijing #jiahao {
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	width: 102px;
+	height: 102px;
+	position: absolute;
+	right: 6%;
+	bottom: 13%;
+}
+#xianshi #beijing #wenzi {
+	width: 102px;
+	height: 102px;
+	position: absolute;
+	bottom: 32%;
+	right: 6%;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	visibility: hidden;
+	-webkit-transition: all;
+	-o-transition: all;
+	transition: all;
+}
+#xianshi #beijing #tupianyou {
+	width: 102px;
+	height: 102px;
+	position: absolute;
+	right: 6%;
+	bottom: 52%;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	visibility: hidden;
+}
+#biaoti #topic {
+	height: 15px;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+}
+#xianshi #beijing #jianhao {
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	width: 102px;
+	height: 102px;
+	position: absolute;
+	right: 6%;
+	bottom: 13%;
+	visibility: hidden;
+}
+#xianshi #beijing #fasong {
+	width: 102px;
+	height: 85px;
+	position: absolute;
+	bottom: 34.5%;
+	right: 6%;
+	visibility: hidden;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+}
+#beijing #shurukuang #xingmingshuru {
+	border-style: none;
+	border-width: thin;
+	background-color: #FFFFFF;
+	height: 102px;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	color: #01BDAA;
+	width: 180px;
+	right: 4%;
+	border-radius: 10px;
+	visibility: hidden;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+}
+#xianshi #beijing #tupianyou2 {
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%);
+	height: 102px;
+	position: absolute;
+	bottom: 72%;
+	right: 6%;
+	width: 102px;
+	visibility: hidden;
+}
+#xianshi #beijing #shurukuang {
+	width: 180px;
+	height: 102px;
+	position: absolute;
+	bottom: 52%;
+	right: 4%;
+	visibility: hidden;
+}
+
+        @media only screen and (max-width: 767px) {
+            .slider h2 {
+                font-size: 20px;
+            }
+#xianshi #beijing #wenzi {
+	width: 102px;
+	height: 102px;
+	position: relative;
+	bottom: 17%;
+	right: 0%;
+	background-image: -webkit-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%,rgba(255,0,0,1.00) 100%), url(url);
+	background-image: -moz-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%,rgba(255,0,0,1.00) 100%), url(url);
+	background-image: -o-linear-gradient(270deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%,rgba(255,0,0,1.00) 100%), url(url);
+	background-image: linear-gradient(180deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,0.00) 100%,rgba(255,0,0,1.00) 100%), url(url);
+}
+            .slider > div {
+                padding: 0 2%
+            }
+            .control label {
+                font-size: 35px;
+            }
+            .slider .button {
+                padding: 0 15px;
+            }
+        }
+        /*===================================================*/
+
+
+
+
+
+
+
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        body{
+	background-image: url(img/beijing2.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	text-align: center;	            /*background:url("/busy/素材/momo/联系/图层 1.jpg");*/            /*background-size: cover ;*/            /*background-attachment:fixed;*/
+        }
+        
+        nav{
+            position:fixed;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            z-index: 80;
+        }
+
+        nav ul{
+            position:relative;
+            /*position: absolute;*/
+            width: 100%;
+            list-style: none;
+
+        }
+
+        nav ul li{
+            background-color:#00C2A8;
+            /*background-color:#00C2A8;*/
+            width:10%;
+            float: left;
+            /*position: absolute;*/
+            /*left:55%;*/
+            /*transform:translateX(-50%);*/
+            /*-moz-transform:translateX(-50%);*/
+            text-align: center;
+            display: inline-block;
+
+        }
+
+        nav ul li:hover a{
+            display:inline-block;
+            width:100%;
+            height: 100%;
+            background-color: #fff;
+            color:#00C2A8!important;
+            /*color:black;*/
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration: none;
+        }
+
+        #my_center{
+            width:20%;!important;
+            background: transparent;!important;
+            /*background: url("/busy/素材/momo/首页/图层 7 拷贝.png");*/
+            background-color: transparent;
+
+        }
+    #xianshi #beijing #wenzi:hover {
+	visibility: visible;
+}
+    </style>
+<script type="text/javascript">
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.img){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_popupMsg(msg) { //v1.0
+  alert(msg);
+}
+</script>
+</head>
+<body onLoad="MM_preloadImages('img/发送.png')">
+<header>
+  <nav>
+    <ul>
+                <li id="ozero" ><a href="index.html#sail0" id="sai0">首页</a></li>
+                <li id="one"><a href="index.html#sail1" id="sai1">简介</a></li>
+                <li id="two"><a href="index.html#sail2" id="sai2">教师</a></li>
+                <li id="four"><a href="index.html#sail4" id="sai4">学生</a></li>
+                <!--<li id="my_center"><img src="img/图层 7 拷贝 21.png" style="width: 9%;float: left; padding-left:30%;" alt="工作室logo"> <a href="#"   id="center">用户体验设计工作室</a></li>-->
+      <li id="my_center"> <a href="#" id="center"><img src="img/大logo.png" width="37" height="37" alt=""/>体验与服务工作室</a></li>
+                <li id="five"><a href="index.html#sail5" id="sai5" class="centernext">作品</a></li>
+                <li id="eight"><a href="#"   class="centernext">分享</a></li>
+                <li id="six"><a href="index.html#sail6" id="sai6" class="centernext">资讯</a></li>
+                <li id="seven"><a href="index.html#sail7" id="sai7" class="centernext">联系</a></li>
+            </ul>
+        </nav>
+</header>
+<div id="biaoti">
+  <div id="topic"></div>
+<h1 style="font-family: Arial; color: #00C2A8; font-size: 50px; font-style: normal; font-weight: normal;">SHARE</h1>
+  <h2 style="font-family: '微软雅黑'; font-size: 36px; color: #00C2A8; font-style: normal; font-weight: normal; text-align: center;">分享</h2>
+</div>
+<div id="geduan"></div>
+<div id="xianshi">
+  <div id="beijing">
+    <div id="fasong"><a href="#" onClick="MM_popupMsg('分享成功！')" onMouseOver="MM_swapImage('Image7','','img/发送.png',1)" onMouseOut="MM_swapImgRestore()"><img src="img/发送 拷贝.png" alt="" width="102" height="85" id="Image7"></a></div>
+	<div id="tupianyou2"><img src="img/图片.png" width="102" height="102" alt=""/></div>
+	<div id="shurukuang"><input name="xingmingshuru" type="text" id="xingmingshuru" form="xingmingshuru" autocomplete="off"  onfocus="this.value=''" onblur="if(this.value==''){this.value='请输入您要分享的内容'}" value="请输入您要分享的内容" size="40" maxlength="100" /></div>
+	<div id="tupianyou"><img src="img/图片.png" width="102" height="102" alt=""/></div>
+    <div id="wenzi"><img src="img/文字.png" alt="" width="102" height="102" onClick="MM_showHideLayers('tupianyou','','hide','wenzi','','hide');MM_showHideLayers('fasong','','show','tupianyou2','','show','xingmingshuru','','show')"/></div>
+    <div id="jiahao"><img src="img/加号.png" alt="" width="102" height="102" onClick="MM_showHideLayers('jiahao','','hide');MM_showHideLayers('tupianyou','','show','wenzi','','show','jianhao','','show')"/></div>
+    <div id="jianhao"><img src="img/jianhao.png" alt="" width="102" height="102" onClick="MM_showHideLayers('fasong','','hide','tupianyou2','','hide','tupianyou','','hide','wenzi','','hide','jianhao','','hide','shurukuang','','hide','xingmingshuru','','hide');MM_showHideLayers('jiahao','','show')"/></div>
+<div id="xianzhi">
+      <div id="tupian">
+        <div id="tupiannei"><img src="img/分享栏.png" alt="" width="1145" height="1025" usemap="#Map"/>
+          <map name="Map">
+            <area shape="rect" coords="260,70,842,107" href="http://mp.weixin.qq.com/s?__biz=MjM5NTA0NjY4MA==&mid=2658994953&idx=1&sn=6cef0a9d36c624cb11bd870a5d8ae190&chksm=bd77df7e8a005668f1f23e91c489c2e7710ed65c9e0f31296db1a5f1dbd793772fc45ae290b3&mpshare=1&scene=1&srcid=10045L8jKA59nSDlc6IQH44V#rd">
+            <area shape="rect" coords="238,269,269,577" href="index.html">
+            <area shape="rect" coords="550,737,944,769" href="http://www.peise.net/tools/web/">
+            <area shape="rect" coords="261,900,506,938" href="http://mp.weixin.qq.com/s?__biz=MzA4MjE1Mjc4MA==&mid=2651581020&idx=1&sn=2c1126228be29aa92eb13f0909f8cbfb&chksm=8475567fb302df690364c5a9b8fa9be06d83dd0db9d392bd003c360c36a7ae6f9d3118bd9d75&mpshare=1&scene=1&srcid=1009E2YtnvarEos9sSsLNNnF#rd">
+            <area shape="rect" coords="853,870,989,1002" href="http://mp.weixin.qq.com/s?__biz=MzA4MjE1Mjc4MA==&mid=2651581020&idx=1&sn=2c1126228be29aa92eb13f0909f8cbfb&chksm=8475567fb302df690364c5a9b8fa9be06d83dd0db9d392bd003c360c36a7ae6f9d3118bd9d75&mpshare=1&scene=1&srcid=1009E2YtnvarEos9sSsLNNnF#rd">
+            <area shape="rect" coords="847,37,982,173" href="http://mp.weixin.qq.com/s?__biz=MzA4MjE1Mjc4MA==&mid=2651581020&idx=1&sn=2c1126228be29aa92eb13f0909f8cbfb&chksm=8475567fb302df690364c5a9b8fa9be06d83dd0db9d392bd003c360c36a7ae6f9d3118bd9d75&mpshare=1&scene=1&srcid=1009E2YtnvarEos9sSsLNNnF#rd">
+            <area shape="circle" coords="866,182,49" href="#">
+          </map>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+</div>
+<footer id="footer">
+  <div id="copyright">Copyright © 2016. Collect from UEDESIGN. All rights reserved&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 中国矿业大学艺术与设计学院体验与服务工作室</div>
+</footer>
+</body>
+</html>

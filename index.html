@@ -1,0 +1,1975 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开工</title>
+    <link rel="stylesheet" href="css/Normalize.css" />
+    <link href="js/首页/CSS全屏轮播/com/css.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="js/加载/files/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="js/加载/files/loaders.css"/>
+    <link rel="stylesheet" type="text/css" href="js/新闻/201609211657/css/htmleaf-demo.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!--==================================================================作品插件展示-->
+    <link rel="stylesheet" type="text/css" href="js/作品/css/CSSreset.min.css" />
+    <link rel="stylesheet" type="text/css" href="js/作品/css/default.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="js/作品/css/als_demo.css" />
+    <!--[if IE]>
+    <!--<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>-->
+    <![endif]-->
+    <!--==================================================================作品插件展示-->
+
+
+    <style>
+     /*   =======================================================
+          *新闻插件的样式*
+          ===============插件引入的样式*/
+
+
+
+     .poster-main{
+         position: relative;
+         margin: 50px auto;
+         box-shadow: 0px 4px 19px -2px;
+     }
+     .poster-main .poster-list .poster-item{
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 600px;
+         height: 350px;
+
+     }
+
+
+
+     .poster-main .poster-btn{
+         position: absolute;
+         top: 0;
+         cursor: pointer;
+     }
+
+
+
+
+     .bottonleft{
+         /*position: absolute;*/
+         display: inline-block;
+         float:left;
+         margin-left: 106%;
+         padding-top: 350px;
+         cursor: pointer;
+         background: url("素材/momo/方向/r.png") no-repeat center center;
+         z-index:10000000000000000000;
+         width: 96px;
+         height: 50px;
+         /*background-color: red;*/
+     }
+
+
+     .bottonleft:hover{
+         background: url("素材/momo/方向/r2.png") no-repeat center center;
+         /*margin-left: 106%;*/
+         /*padding-top: 350px;*/
+     }
+
+     .bottonright{
+         /*position: absolute;*/
+         display: inline-block;
+         float:left;
+         margin-left: -25%;
+         padding-top: 350px;
+         cursor: pointer;
+         background: url("素材/momo/方向/l.png") no-repeat center center;
+         /*background-color: red;*/
+         width: 96px;
+         height: 50px;
+         z-index:10000000000000000000;
+     }
+
+     .bottonright:hover{
+         background: url("素材/momo/方向/l2.png") no-repeat center center;
+         /*margin-left: -25%;*/
+         /*padding-top: 350px;*/
+     }
+
+     /*   =======================================================
+         *新闻插件的样式*
+         ===============插件引入的样式*/
+
+     body {
+
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        /* Slider wrapper*/
+        .css-slider-wrapper {
+            display: block;
+            background: #FFF;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        /* Slider */
+        .slider {
+            width: 100%;
+            height: 100%;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 1;
+            z-index: 0;
+            display: flex;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            flex-direction: row;
+            flex-wrap: wrap;
+            -webkit-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            -webkit-transition: -webkit-transform 1600ms;
+            transition: -webkit-transform 1600ms, transform 1600ms;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        /* each slide backgound color */
+        .slide1 {
+            /*background: #00bcd7;*/
+            background:url("素材/momo/首页/trans2.png");
+            /*background:url("/busy/素材/momo/首页/背景 拷贝.jpg");*/
+            background-size: cover;
+            left: 0;
+
+        }
+        .slide2 {
+            /*background: #009788;*/
+            background:url("素材/momo/首页/trans2.png");
+            /*background:url("/busy/素材/momo/首页/背景 拷贝2.jpg");*/
+            background-size: cover;
+            left: 100%
+        }
+        .slide3 {
+            /*background: #ff5608;*/
+
+            background:url("素材/momo/首页/背景 拷贝2.jpg");
+            background-size: cover;
+            left: 200%;
+        }
+        .slide4 {
+            /*background: #607d8d;*/
+            background:url("素材/momo/首页/背景 拷贝.jpg");
+            background-size: cover;
+            left: 300%;
+        }
+        .slider > div {
+            text-align: center;
+        }
+        /* Slider inner slide effect */
+        .slider h2 {
+            color: #FFF;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 45px;
+            line-height: 120%;
+            opacity: 0;
+            -webkit-transform: translateX(500px);
+            transform: translateX(500px);
+        }
+        .slider .button {
+            color: #FFF;
+            padding: 5px 30px;
+            background: rgba(255,255,255,0.3);
+            text-decoration: none;
+            opacity: 0;
+            font-size: 15px;
+            line-height: 30px;
+            display: inline-block;
+            -webkit-transform: translateX(-500px);
+            transform: translateX(-500px);
+        }
+        .slider h2, .slider .button {
+            -webkit-transition: opacity 800ms, -webkit-transform 800ms;
+            transition: transform 800ms, opacity 800ms;
+            -webkit-transition-delay: 1s; /* Safari */
+            transition-delay: 1s;
+        }
+        /* Next and Preive arrow */
+        .control {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            z-index: 55;
+        }
+        .control label {
+            z-index: 0;
+            display: none;
+            text-align: center;
+            line-height: 50px;
+            font-size: 50px;
+            color: #FFF;
+            cursor: pointer;
+            opacity: 0.2;
+        }
+        .control label:hover {
+            opacity: 0.5;
+        }
+        .next {
+            right: 1%;
+        }
+        .previous {
+            left: 1%;
+        }
+        /* Slider Pagger */
+        .slider-pagination {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            z-index: 1000;
+        }
+        .slider-pagination label {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            margin: 0 2px;
+            border: solid 1px rgba(255,255,255,0.4);
+            cursor: pointer;
+        }
+        /* Slider Pagger arrow event */
+        .slide-radio1:checked ~ .next .numb2,
+        .slide-radio2:checked ~ .next .numb3,
+        .slide-radio3:checked ~ .next .numb4,
+        .slide-radio2:checked ~ .previous .numb1,
+        .slide-radio3:checked ~ .previous .numb2,
+        .slide-radio4:checked ~ .previous .numb3 {
+            display: block;
+            z-index: 1
+        }
+        /* Slider Pagger event */
+        .slide-radio1:checked ~ .slider-pagination .page1,
+        .slide-radio2:checked ~ .slider-pagination .page2,
+        .slide-radio3:checked ~ .slider-pagination .page3,
+        .slide-radio4:checked ~ .slider-pagination .page4 {
+            background: rgba(255,255,255,1)
+        }
+        /* Slider slide effect */
+        .slide-radio1:checked ~ .slider {
+            -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+        }
+        .slide-radio2:checked ~ .slider {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+        .slide-radio3:checked ~ .slider {
+            -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+        }
+        .slide-radio4:checked ~ .slider {
+            -webkit-transform: translateX(-300%);
+            transform: translateX(-300%);
+        }
+        .slide-radio1:checked ~ .slide1 h2,
+        .slide-radio2:checked ~ .slide2 h2,
+        .slide-radio3:checked ~ .slide3 h2,
+        .slide-radio4:checked ~ .slide4 h2,
+        .slide-radio1:checked ~ .slide1 .button,
+        .slide-radio2:checked ~ .slide2 .button,
+        .slide-radio3:checked ~ .slide3 .button,
+        .slide-radio4:checked ~ .slide4 .button {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1
+        }
+
+        @media only screen and (max-width: 767px) {
+            .slider h2 {
+                font-size: 20px;
+            }
+            .slider > div {
+                padding: 0 2%
+            }
+            .control label {
+                font-size: 35px;
+            }
+            .slider .button {
+                padding: 0 15px;
+            }
+        }
+        /*===================================================*/
+
+
+
+        *{
+            margin: 0;
+            padding:0;
+            font-family: "微软雅黑";
+        }
+
+        body{
+            /*background:url("/busy/素材/momo/联系/图层 1.jpg");*/
+            /*background-size: cover ;*/
+            /*background-attachment:fixed;*/
+        }
+        
+        nav{
+            position:fixed;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            z-index: 80;
+            top:70px;
+            /*border-left:1px solid lightslategray;*/
+            /*border-right:1px solid lightslategray;*/
+            /*border-bottom:1px solid lightslategray;*/
+            border:none;
+            /*display:none;*/
+        }
+
+        nav ul{
+            position:relative;
+            /*position: absolute;*/
+            width: 100%;
+            list-style: none;
+
+        }
+
+        nav ul li{
+            /*background:transparent;*/
+            background-color:#00C2A8;
+            /*background-color:white;*/
+            width:10%;
+            float: left;
+            /*position: absolute;*/
+            /*left:55%;*/
+            /*transform:translateX(-50%);*/
+            /*-moz-transform:translateX(-50%);*/
+            text-align: center;
+            display: inline-block;
+        }
+
+        nav ul li:hover a{
+            display:inline-block;
+            width:100%;
+            height: 100%;
+            background-color: #fff;
+            color:#00C2A8!important;
+            /*background-color:#00C2A8;*/
+            /*color:#fff!important;*/
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration: none;
+            font-family: "微软雅黑";
+        }
+
+        #my_center{
+            width:20%;!important;
+            background: transparent;!important;
+            /*background: url("/busy/素材/momo/首页/图层 7 拷贝.png");*/
+            background-color: transparent;
+
+        }
+
+        #center{
+            /*width: 400px;*/
+            width:100%;
+            display: block;
+            margin: 0 auto;
+            padding-left: 3px;
+            text-align: center;
+            /*margin-left:auto;*/
+            /*background: transparent;!important;*/
+            /*background-color: transparent;!important;*/
+            background: url("素材/momo/首页/图层 7 拷贝.png")no-repeat;
+            background-size: 9%;
+            background-position: 22%;
+        }
+
+        #ozero{ /*display:none;*/ visibility: hidden;  }
+        #one{  visibility: hidden;}
+        #tow{  visibility: hidden;}
+        #four{  visibility: hidden;}
+        #five{  visibility: hidden;}
+        #six{  visibility: hidden;}
+        #seven{  visibility: hidden;}
+        #eight{  visibility: hidden;}
+
+        .sail0{
+            width:100%;
+            /*min-height: 800px;*/
+            /*min-height:724px;*/
+            min-height:850px;
+            /*background:url("/busy/素材/momo/首页/背景 拷贝.jpg");*/
+            /*background-size: cover  ;*/
+
+        }
+
+        .sail1{
+            width:100%;
+            height: 100%;
+            background: url("img/gzs/背景 拷贝.jpg");
+            background-size: cover;
+            position:relative;
+        }
+
+        .sail1 .cover{
+            width:100%;
+            height: 850px;
+            position:relative;
+        }
+
+        .opacity{ opacity:0.3; filter: alpha(opacity=30); background-color:#000; }
+
+        .sail1 .logo{
+            width: 12%;
+            position:absolute;
+            top:6%;
+            left:44%;
+            z-index: 30;
+        }
+
+        .sail1 .pone{
+            position: absolute;
+            font-size: 31px;
+            font-family: 微软雅黑;
+            color:white;
+            top:34%;
+            left:42%;
+        }
+
+        .sail1 .ptwo{
+            font-family: 微软雅黑;
+            font-size:18px;
+            color:white;
+            position: absolute;
+            top:42%;
+            left:35%;
+            line-height: 25px;
+        }
+
+        .sail1 .pthree{
+            font-family: 微软雅黑;
+            font-size:18px;
+            color:white;
+            position: absolute;
+            top:51%;
+            left:35%;
+            line-height: 25px;
+        }
+
+        .sail1 .pfour{
+            font-family: 微软雅黑;
+            font-size:18px;
+            color:white;
+            position: absolute;
+            top:69%;
+            left:35%;
+            line-height: 25px;
+        }
+
+        .sail2{
+            font-family: 微软雅黑;
+            color:white;
+            width:100%;
+            height: 850px;
+            background-color: #fff;
+            /*position: relative;*/
+        }
+
+        .sail2 .pone{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 58px;
+            text-align: center;
+
+        }
+
+        .sail2 .ptow{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .sail2 .pthree{
+            width:8%;
+            margin: 0 auto;
+        }
+
+        .sail2 .container{
+            width: 100%;
+            height:500px;
+            border:none;
+            background-color: white;
+            white-space: nowrap;
+            overflow: hidden;
+
+        }
+
+        .sail2 .contain{
+            border:none;
+            width:1200px;
+            height: 500px;
+            margin:0 auto;
+        }
+
+        /*.sail2 #s_one:hover{background:url("素材/momo/教师/one.jpg")center no-repeat;background-size: cover;}*/
+        /*.sail2 #s_five:hover{background:url("素材/momo/教师/tow.jpg")center no-repeat;background-size: cover;}*/
+        /*.sail2 #s_three:hover{background:url("素材/momo/教师/three.jpg")center no-repeat;background-size: cover;}*/
+        /*.sail2 #s_seven:hover{background:url("素材/momo/教师/four.jpg")center no-repeat;background-size: cover;}*/
+        #s_one{
+            margin-left: 80px;background:url('素材/momo/教师/1.jpg')center no-repeat;background-size: cover;z-index:200;
+        }
+         #s_five{
+             background:url('素材/momo/教师/2.jpg')center no-repeat;background-size: cover;z-index:200;
+         }
+         #s_three{
+             background:url('素材/momo/教师/3.jpg')center no-repeat;background-size: cover;z-index:200;
+         }
+         #s_seven{
+             background:url('素材/momo/教师/4.jpg')center no-repeat;background-size: cover;z-index:200;
+         }
+
+      #s_one:hover{background:url("素材/momo/教师/one.jpg")center no-repeat;background-size: cover;z-index:50;}
+      #s_five:hover{background:url("素材/momo/教师/tow.jpg")center no-repeat;background-size: cover;z-index:50;}
+      #s_three:hover{background:url("素材/momo/教师/three.jpg")center no-repeat;background-size: cover;z-index:50;}
+      #s_seven:hover{background:url("素材/momo/教师/four.jpg")center no-repeat;background-size: cover;z-index:50;}
+
+        .container .box{
+            display: inline-block;
+            background-color: dodgerblue;
+            width: 230px;
+            height: 460px;
+            margin-right: 33px;
+        }
+
+        /*.sail2 img{}*/
+        .sail2 .content{
+            width: 720px;
+            height: 460px;
+            margin-right: 26px;
+            display: none;
+            background-color: #fff;
+            border:1px solid lightgrey;
+            position: absolute;
+            /*bottom:68%;*/
+            color:#02BFA3;
+            font-family:微软雅黑;
+            font-size:20px;
+            line-height: 35px;
+        }
+
+        .sail3{
+            width:100%;
+            height: 850px;
+            background: url("素材/momo/过渡/背景 拷贝4.jpg");
+            background-size: cover  ;
+
+        }
+
+        .sail4{
+            width:100%;
+            height: 850px;
+            background-color: #F7F7F7;
+            position:relative;
+        }
+
+        .sail4 .pone{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 58px;
+            text-align: center;
+        }
+
+        .sail4 .ptow{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .sail4 .pthree{
+            width:8%;
+            margin: 0 auto;
+        }
+
+        .sail4 .topcontainer{
+            width: 1274px;
+            /*max-width: 1274px;*/
+            /*min-width:700px;*/
+            border:1px red solid;
+            margin: 0 auto;
+        }
+
+        .sail4 .topcontainer .tone{
+            width: 217px;
+            height: 321px;
+            margin-left: 2.2%;
+        }
+
+        .sail4 .topcontainer .ttow{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        .sail4 .topcontainer .tthree{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        .sail4 .topcontainer .tfour{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        .sail4 .topcontainer .tfive{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        .sail4 .left{
+            display: inline-block;
+            float:left;
+            padding-left: 7%;
+            margin-top: -31px;
+            position:absolute;
+            /*z-index: 10000;*/
+        }
+
+        .sail4 .right{
+            display: inline-block;
+            float:left;
+            padding-left:88%;
+            margin-top: -31px;
+            position:absolute;
+            /*z-index:10000;*/
+        }
+
+        .sail4 .bottomcontainer{
+            width: 1274px;
+            /*max-width: 1274px;*/
+            /*min-width:700px;*/
+            border:1px red solid;
+            margin: 0 auto;
+        }
+
+        .sail4 .bottomcontainer .tone{
+            width: 217px;
+            height: 321px;
+            margin-left: 2.2%;
+        }
+
+        .sail4 .bottomcontainer .ttow{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        .sail4 .bottomcontainer .tthree{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        .sail4 .bottomcontainer .tfour{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        .sail4 .bottomcontainer .tfive{
+            width: 217px;
+            height: 321px;
+            margin-left: 2%;
+        }
+
+        #bigapple1{background: url('素材/momo/学生/1.jpg')center;  background-size: cover;width: 200px;height: 310px;}
+        #bigapple2{background: url('素材/momo/学生/2.jpg')center;  background-size: cover;width: 200px;height: 310px;}
+        #bigapple3{background: url('素材/momo/学生/3.jpg')center;  background-size: cover;width: 200px;height: 310px;}
+        #bigapple4{background: url('素材/momo/学生/4.jpg')center;  background-size: cover;width: 200px;height: 310px;}
+        #bigapple5{background: url('素材/momo/学生/5.jpg')center;  background-size: cover;width: 200px;height: 310px;}
+        #bigapple6{background: url('素材/momo/学生/6.jpg')center;  background-size: cover;width: 200px;height: 310px;  position: absolute;top:128%;}
+        #bigapple7{background: url('素材/momo/学生/7.jpg')center;  background-size: cover;width: 200px;height: 310px;  position: absolute;top:128%;}
+        #bigapple8{background: url('素材/momo/学生/8.jpg')center;  background-size: cover;width: 200px;height: 310px;  position: absolute;top:128%;}
+        #bigapple9{background: url('素材/momo/学生/9.jpg')center;  background-size: cover;width: 200px;height: 310px;  position: absolute;top:128%;}
+        #bigapple10{background: url('素材/momo/学生/10.jpg')center;  background-size: cover;width: 200px;height: 310px;  position: absolute;top:128%;}
+        #bigapple1:hover{background: url("素材/momo/学生/new/1.jpg")center ; background-size: cover; width: 200px;height: 310px; z-index:200;}
+        #bigapple2:hover{background: url("素材/momo/学生/new/2.jpg")center ; background-size: cover; width: 200px;height: 310px; z-index:200;}
+        #bigapple3:hover{background: url("素材/momo/学生/new/3.jpg")center ; background-size: cover; width: 200px;height: 310px; z-index:200;}
+        #bigapple4:hover{background: url("素材/momo/学生/new/4.jpg")center ; background-size: cover; width: 200px;height: 310px; z-index:200;}
+        #bigapple5:hover{background: url("素材/momo/学生/new/5.jpg")center ; background-size: cover; width: 200px;height: 310px; z-index:200;}
+        #bigapple6:hover{background: url("素材/momo/学生/new/6.jpg")center ; background-size: cover; width: 200px;height: 295px; z-index:200;}
+        #bigapple7:hover{background: url("素材/momo/学生/new/7.jpg")center ; background-size: cover; width: 200px;height: 295px; z-index:200;}
+        #bigapple8:hover{background: url("素材/momo/学生/new/8.jpg")center ; background-size: cover; width: 200px;height: 295px; z-index:200;}
+        #bigapple9:hover{background: url("素材/momo/学生/new/9.jpg")center ; background-size: cover; width: 200px;height: 295px; z-index:200;}
+        #bigapple10:hover{background: url("素材/momo/学生/new/10.jpg")center ; background-size: cover; width: 200px;height: 295px; z-index:200;}
+
+        #stu6:hover{
+            /*background: url("/busy/素材/momo/学生/2.jpg");*/
+        }
+
+        .sail5{
+            width:100%;
+            height: 850px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .sail5 .sail5container{
+            border:3px red solid;
+            width: 1176px;
+            /*max-width: 1423px;*/
+            /*min-width:700px;*/
+            margin:0 auto;
+            position: relative;
+
+        }
+
+        .sail5 .pone{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 58px;
+            text-align: center;
+        }
+
+        .sail5 .ptow{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .sail5 .pthree{
+            width:8%;
+            margin: 0 auto;
+        }
+
+        .sail5 .left{
+            display: inline-block;
+            float:left;
+            position: absolute;
+            padding-left: 7%;
+            margin-top: 101px;
+            z-index: 10000;
+        }
+
+        .sail5 .right{
+            display: inline-block;
+            float:right;
+            position: absolute;
+            padding-left:88%;
+            margin-top: 101px;
+            z-index: 10000;
+        }
+
+        .sail5 .tone{
+            width: 180px;
+            height: 340px;
+            vertical-align: top;
+            margin-left: 19px;
+        }
+
+        .sail5 .ttow{
+            width: 180px;
+            height: 440px;
+            vertical-align: top;
+        }
+
+        .sail5 .tthree{
+            width: 180px;
+            height: 280px;
+            vertical-align: top;
+        }
+
+        .sail5 .tfour{
+            width: 180px;
+            height: 520px;
+            vertical-align: top;
+        }
+
+        .sail5 .tfive{
+            width: 180px;
+            height: 280px;
+            vertical-align: top;
+        }
+
+        .sail5 .tsix{
+            width: 180px;
+            height: 360px;
+            vertical-align: top;
+        }
+
+        .sail6{
+            width:100%;
+            height: 850px;
+            background-color: #F7F7F7;
+
+        }
+
+        .sail6 .pone{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 58px;
+            text-align: center;
+        }
+
+        .sail6 .ptow{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .sail6 .pthree{
+            width:8%;
+            margin: 0 auto;
+        }
+
+        .sail7{
+            width:100%;
+            height: 900px;
+            background:url("素材/momo/联系/图层 1.jpg");
+            background-size: cover ;
+            background-attachment:fixed;
+            position: relative;
+        }
+
+        .sail7 .cover{
+            width:100%;
+            height: 900px;
+        }
+
+        .opacity{ opacity:0.3; filter: alpha(opacity=30); background-color:#000; }
+
+        .sail7 .contact{
+            /*width: 500px;*/
+            /*height: 600px;*/
+            width: 50%;
+            height: 82%;
+            position:absolute;
+            border:none;
+            top:8%;
+            left:25%;
+        }
+
+        .sail7 .pone{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 58px;
+            text-align: center;
+        }
+
+        .sail7 .ptow{
+            font-family:微软雅黑;
+            color:#02BFA3;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .sail7 .pthree{
+            width:8%;
+            margin: 0 auto;
+        }
+
+        .sail7 .contact span{
+            display: inline-block;
+            text-align: left;
+            font-family: 微软雅黑;
+            color:white;
+            border:none;
+            font-size: 1rem;
+            margin-top: 15px;
+            margin-left: 1.5rem;
+        }
+
+        .sail7 .contact .a{
+            border:none;
+            border-radius: 5px;
+            /*width:550px;*/
+            width: 70%;
+            height:50px;
+            background-color: #02BFA3;
+            margin-left: 15%;
+            /*text-indent: 1.5rem;*/
+        }
+
+        .sail7 .contact .first{
+            background-color: #02BFA3;
+            border:none;
+            color:white;
+            /*width:502px;*/
+            border:none;
+            width: 60%;
+            height:30px;
+            padding-top: 5px;
+        }
+
+        .sail7 .contact .b{
+            margin-top: 8px;
+        }
+
+        .sail7 .contact .c{
+            border:none;
+            border-radius: 5px;
+            /*width:550px;*/
+            width: 70%;
+            height:250px;
+            background-color: #02BFA3;
+            margin-left: 15%;
+            margin-top: 8px;
+        }
+
+        .sail7 .contact .d{
+            border:none;
+            border-radius: 5px;
+            /*width:550px;*/
+            width: 70%;
+            height:62px;
+            background-color: #02BFA3;
+            margin-left: 15%;
+            margin-top: 8px;
+            background: url("素材/momo/联系/1.png") center;
+            background-size: cover;
+        }
+
+        .sail7 .contact .d:hover{
+            background: url("素材/momo/联系/按钮.png") center;
+            background-size: cover;
+
+     }
+
+        .sail7 .contact .e{
+            border:none;
+            border-radius: 5px;
+            margin-top: 15px;
+            width: 70%;
+            height:50px;
+            /*background-color: #02BFA3;*/
+            margin-left: 15%;
+            background-color: transparent;
+            color:white;
+            font-family:微软雅黑;
+            text-align: center;
+
+        }
+
+        .sail7 .bottom{
+            width:100%;
+            background-color: #1F5351;
+            height:50px;
+            font-family: 微软雅黑;
+            color:white;
+            text-align: center;
+            line-height:50px;
+        }
+
+        #close{
+            background-color:#00C2A8;
+            font-family: 微软雅黑;
+            border-radius: 5px;
+
+        }
+
+        .aplayer{
+            border:none;
+            z-index:1000;
+            position:fixed;
+            top:0%;
+            left:8%;
+        }
+
+        #spinner{
+            position: fixed;
+            z-index: 9999999;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color:white;
+        }
+
+         #spinner {
+             width: 100%;
+             height: 100%;
+             margin:0 auto;
+             border:none;
+         }
+
+         .ball-zig-zag-deflect{
+             display: inline-block;
+             float:left;
+
+         }
+
+         .pacman{
+             width: 200px;
+             height: 70px;
+             float:left;
+             margin-left: 100px;
+         }
+
+         .ball-zig-zag-deflect{
+             width: 200px;
+             height: 70px;
+             float:left;
+         }
+
+         .ball-pulse-rise{
+             width: 200px;
+             height: 70px;
+             float:left;
+         }
+
+         #spinner .phone h1{
+             font-size: 10rem;
+         }
+
+         .goodlist{
+             z-index:100000000000000000000000000000;
+             background-color: #fff!important;
+         }
+
+         .sail5 .container   .als-item{
+             background-color: white!important;
+            }
+
+        .page1:hover{
+            background: url("");
+        }
+
+        video{
+            border-radius: 5px;
+        }
+        
+        #close{
+            background-color: black;
+            font-family: 微软雅黑;
+            color:white;
+            width: 100%;
+        }
+
+        #close:hover{
+         background-color: white;
+         font-family: 微软雅黑;
+         color:black;
+         width: 100%;
+     }
+
+        #span1{
+            /*background: url('/busy/素材/momo/首页/上一页.png');*/
+            background: url('素材/momo/方向/l2.png');
+            z-index:100;
+            background-size: cover;
+            width: 95px;
+            height: 95px;
+            position: fixed;
+            top:42%;
+            left:0%;
+            display: inline-block;
+        }
+
+        #span1:hover{
+            background: url('素材/momo/首页/left.png')center no-repeat;
+
+        }
+
+        #span2{
+            background: url('素材/momo/方向/r2.png');
+            z-index:10;
+            background-size: cover;
+            width: 95px;
+            height: 95px;
+            position: fixed;
+            top:42%;
+            right:0%;
+            display:inline-block;
+
+        }
+
+        #span2:hover{
+            background: url('素材/momo/首页/right.png');
+            background-size: cover;
+        }
+
+        #comeon1{
+            position: absolute;
+            top:65%;
+            right:10%;
+            display:inline-block;
+            background-color:red;
+            width: 100px;
+            height: 100px;
+            background: url("素材/momo/方向/top2.png")center no-repeat;
+            background-size: cover;
+        }
+
+         #comeon1:hover{
+             width: 100px;
+             height: 100px;
+             background: url("素材/momo/方向/top.png")center no-repeat;
+             background-size: cover;
+         }
+
+         .large_window{
+             position: absolute;
+             top:0%;
+             border:3px solid black;
+             left:10%;
+             /*background-color:darkseagreen;*/
+             background-color:black;
+             width: 1135px;
+             height: 600px;
+             z-index:50;
+         }
+
+     .opacity{ opacity:0.3; filter: alpha(opacity=30); background-color:#000; }
+
+        #an_window{
+            /*width: 490px;*/
+            width: 475px;
+            height: 600px;
+            /*background-color:slategray;*/
+            background-color:#fff;
+            color:#02BFA3;
+            display: none;
+            position: absolute;
+            top:0%;
+            border:none;
+            left:33%;
+            z-index:100;
+            font-size:0.8rem;
+            overflow: auto;
+            line-height: 1.3rem;
+        }
+
+        #up_window{
+            display:none;
+        }
+
+        #img_close{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left:85%;
+            top:0%;
+            z-index:300;
+            display: none;
+            border:1px solid slategray;
+        }
+
+        video{
+            position:absolute;
+            min-width: 100%;
+            min-height:100%;
+            z-index:-9999;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<!--加载的动画-->
+<div id="spinner" style="marign:0;">
+    <!--<div class="phone">-->
+        <!--<br><br>-->
+        <!--<h1>Loading...</h1>-->
+        <!--<br><br><br><br><br>-->
+        <!--<div class="smallcontainer">-->
+        <!--<div class="loader-inner pacman">-->
+            <!--<div></div>-->
+            <!--<div></div>-->
+            <!--<div></div>-->
+            <!--<div></div>-->
+            <!--<div></div>-->
+        <!--</div>-->
+        <!--<div class="loader-inner ball-zig-zag-deflect">-->
+            <!--<div></div>-->
+            <!--<div></div>-->
+        <!--</div>-->
+            <!--<div class="loader-inner ball-pulse-rise">-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+                <!--<div></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<img src="素材/momo/方向/无标题-1.swf" alt="">-->
+    <embed src="素材/momo/方向/无标题-1.swf" type="" loop="false" style="width: 100%;height: 100%;marign:0;"  play="true">
+</div>
+<!--加载的动画-->
+    <header>
+        <nav>
+            <ul>
+                <li id="ozero" style="background-color:#00C2A8;color:white;"><a href="#sail0" id="sai0" >首页</a></li>
+                <li id="one" ><a href="#sail1" id="sai1">简介</a></li>
+                <li id="tow"><a href="#sail2" id="sai2">教师</a></li>
+                <li id="four"><a href="#sail4" id="sai4">学生</a></li>
+                <li id="my_center"> <a href="#" id="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;体验与服务工作室</a></li>
+                <li id="five"><a href="#sail5" id="sai5" class="centernext">作品</a></li>
+                <li id="eight"><a href="登录界面.html"   class="centernext">分享</a></li>
+                <li id="six"><a href="#sail6" id="sai6" class="centernext">资讯</a></li>
+                <li id="seven"><a href="#sail7" id="sai7" class="centernext">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+<a name="comeon"></a>
+    <div style="clear: both;"></div>
+    <div class="aplayer" >
+    <!--<button id="close" onclick="close(this);">关闭</button>-->
+    <video id="sampleMovie"  controls  autoplay="autoplay" muted  loop="loop" style="width: 100%;z-index:100000;" >
+        <source src="素材/momo/首页/indexvideo.webm" type="video/webm">
+        <source src="素材/momo/首页/indexvideo.avi" type="video/avi">
+        <source src="素材/momo/首页/indexvideo.mp4" type="video/mp4">
+        你的浏览器不支持视频格式，请更换浏览器进行观看
+    </video>
+    <!--<srouce  src="/busy/素材/momo/首页/indexvideo.avi" controls  autoplay="autoplay"  loop="loop" style="width: 100%;z-index:100000;" type="video/avi"></srouce>-->
+    <!--<srouce src="/busy/素材/momo/首页/indexvideo.mp4" controls  autoplay="autoplay"  loop="loop" style="width: 100%;z-index:100000;" type="video/mp4"></srouce>-->
+    </div>
+
+    <div>
+        <!--<section class="sail0">-->
+        <section class="sail0">
+
+            <a name="sail0"></a>
+            <!--<video src="素材/momo/首页/indexvideo.webm" autoplay loop  >-->
+            <!--</video>-->
+            <video   controls  autoplay="autoplay"  loop="loop"  style="width: 100%;" >
+                <source src="素材/momo/首页/indexvideo.webm" type="video/webm">
+                <source src="素材/momo/首页/indexvideo.avi" type="video/avi">
+                <source src="素材/momo/首页/indexvideo.mp4" type="video/mp4">
+                你的浏览器不支持视频格式，请更换浏览器进行观看
+            </video>
+        </section>
+
+        <section class="sail1">
+
+
+            <img src="素材/momo/简介/大logo.png" class="logo" alt="工作室logo">
+            <a name="sail1" ></a>
+            <div class="cover opacity">
+
+            </div>
+
+            <p class="pone">体验与服务工作室</p>
+
+            <p class="ptwo">工作室注重工程技术、文化艺术、管理科学等多学科的融合，<br>
+                实施产品、交互、服务等领域方向的创新与实践。</p>
+            <p class="pthree">
+                工作室因才施教，通过产品设计程序与方法、产品功能设计<br>
+                研究、产品语意设计、新产品开发与设计、产品人因分析与<br>
+                设计、交互设计等一系列综合实践性设计课题的训练，使得<br>
+                学生掌握扎实的理论基础和设计技能，具备较强的适应能力<br>
+                和拓展能力。</p>
+            <p class="pfour">学生毕业后可在设计公司、企事业单位、高等院校、<br>
+                研发机构从事产品、交互、服务、信息媒体等方面的设计、<br>
+                教学、管理和研究工作。</p>
+        </section>
+
+        <section class="sail2">
+            <input type="hidden"><br>
+                <!--#7FE0D4 字体-->
+            <a name="sail2"></a>
+            <br><br>
+            <p  class="pone">OUR   &nbsp;&nbsp;&nbsp;  TEACHERS </p><br>
+            <p  class="ptow"> 体验与服务工作室教师团队</p><br>
+            <hr class="pthree">
+            <br><br>
+            <div class="container">
+                <div class="contain">
+                    <img id="s_one" class="box "   style="">
+                    <img id="s_five" class="box "  style="">
+                    <img id="s_three" class="box " style="">
+                    <img id="s_seven" class="box " style="">
+                    <!--<img id="s_five" class="box " src="素材/momo/教师/2.jpg">-->
+                    <!--<img id="s_three" class="box " src="素材/momo/教师/3.jpg">-->
+                    <!--<img id="s_seven" class="box " src="素材/momo/教师/4.jpg">-->
+                    <div id="s_tow" class="info  content" style="display: none;">
+                        <div style="border:none;position: absolute;top:0;">
+                            &nbsp;&nbsp;&nbsp;&nbsp;个人资料<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;张昆，汉族，1968年8月出生于江苏徐州。<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;1992年毕业于西安电子科技大学，获家具设计与工程专业博士。<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;现任职<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;中国矿业大学艺术与设计学院教学副院长、副教授，产品设计研究所所长；<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;江苏省工业设计协会理事；<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;机械工业教育协会工业设计学科教学委员会委员。<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;研究方向<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;产品形象设计、通用设计。<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;获奖荣誉<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;发表学术论文26篇，EI检索1篇，ISTP检索3篇，核心期刊8篇；<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;获中国矿业大学优秀教学成果二等奖2项，三等奖2项；曾获中国矿业大学优秀<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;青年骨干教师、教书育人先进个人、优秀毕业设计指导教师等多种荣誉称号。
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sail3">
+            <a name="sail3"></a>
+            <br> <br><br><br> <br><br><br> <br><br>
+            <br><br><br><br><br><br><br><br><br>
+            <div style="font-family:微软雅黑;font-size: 45px;color:white;text-align: center;font-weight: 600;">The ability to design creativity</div>
+            <br><br><br>
+            <div style="font-family:微软雅黑;font-size: 45px;color:white;text-align: center;font-weight: 600;">The ability to express ideas</div>
+            <br><br><br>
+            <div style="font-family:微软雅黑;font-size: 45px;color:white;text-align: center;font-weight: 600;">Comprehensive professional skills</div>
+        </section>
+
+        <section class="sail4">
+            <input type="hidden"><br>
+            <a name="sail4"></a>
+            <br><br>
+            <p  class="pone">OUR   &nbsp;&nbsp;&nbsp;  STUDENTS </p>
+            <br>
+            <p  class="ptow"> 体验与服务工作室学生团队</p>
+            <hr class="pthree">
+            <div class="og_prev"></div>
+        <div class="stucontainer" style="margin:0 auto; width:1180px;height: 700px;">
+            <div class="scroll">
+                <div class="picbox">
+                    <ul class="piclist mainlist">
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple1" ></a>
+                        </li>
+
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple2" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple3" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple4" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple5" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple6" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple7" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple8" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple9" ></a>
+                        </li>
+
+
+
+                        <li class="goodlist"  style="height: 0px;   background-color: #F7F7F7; ">
+                            <a  class="pics" id="bigapple10" ></a>
+                        </li>
+                    </ul>
+                    <ul class="piclist swaplist"></ul>
+                </div>
+
+
+            </div>
+        </div>
+            <div class="og_next"></div>
+        </section>
+
+        <section class="sail5">
+            <input type="hidden"><br>
+            <a name="sail5"></a>
+            <br><br>
+            <p  class="pone">OUR   &nbsp;&nbsp;&nbsp;  WORKS </p>      <br>
+            <p  class="ptow"> 体验与服务工作室优秀案列</p><br>
+            <hr class="pthree">
+            <div class="container">
+                <!--<span class="als-prev"><img src="/busy/素材/momo/学生/l.png" alt="prev" title="previous" /></span>-->
+                <!--<span class="als-next"><img src="/busy/素材/momo/学生/r.png" alt="next" title="next" /></span>-->
+                <section id="content">
+                    <div id="lista1" class="als-container">
+                        <!--<span class="als-prev"><img src="/busy/素材/momo/学生/l.png" alt="prev" title="previous" /></span>-->
+                        <span class="als-prev" style="min-height: 100px;min-width: 100px;background-size: cover;"></span>
+                        <div class="als-viewport" id="an_beat">
+                            <ul class="als-wrapper">
+                                <li class="als-item" ><img src="js/作品/images/als-images/1.jpg" class="tone" /></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/2.jpg" class="ttow"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/3.jpg" class="tthree"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/4.jpg" class="tfour" /></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/5.jpg" class="tfive"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/6.jpg" class="tsix"/></li>
+
+
+                                <li class="als-item"><img src="js/作品/images/als-images/2.jpg" class="ttow"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/4.jpg" class="tfour" /></li>
+                                <li class="als-item" style=""><img src="js/作品/images/als-images/1.jpg" class="tone" /></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/3.jpg" class="tthree"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/6.jpg" class="tsix"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/5.jpg" class="tfive"/></li>
+
+
+                                <li class="als-item"><img src="js/作品/images/als-images/5.jpg" class="tfive"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/2.jpg" class="ttow"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/6.jpg" class="tsix"/></li>
+                                <li class="als-item" style=""><img src="js/作品/images/als-images/1.jpg" class="tone" /></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/3.jpg" class="tthree"/></li>
+                                <li class="als-item"><img src="js/作品/images/als-images/4.jpg" class="tfour" /></li>
+                            </ul>
+                        </div>
+                        <!--弹出框-->
+                        <!--<div class="large_window">-->
+                            <!--<div id="an_window">-->
+                                    <!--啊看了都放假咯额就文化 <br>-->
+                                    <!--急啊了放假啦文件-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div id="an_window">
+                            <span style="font-size:26px;">
+                                <br>
+                               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;耳塞式蓝牙耳机设计</span><br>
+                            <img src="素材/momo/作品/ren.jpg"  style="float: left;margin-left:12px;">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;设计者:马小东 <br>
+
+                            &nbsp;&nbsp;&nbsp;发布于2016.10.3 <br><br>
+                            &nbsp;&nbsp;&nbsp;外观灵性与线性的勾勒使产品具有个性和生命力，色彩（黑白灰）的选用与搭<br>
+                            &nbsp;&nbsp;&nbsp;配使产品呈有生活与时尚气息。<br>
+                            &nbsp;&nbsp;&nbsp;1、抽象同具象的结合使产品外观更加生动、富有情趣。<br>
+                            &nbsp;&nbsp;&nbsp;2、产品上下壳表面高光处理，中框金属银色，按键喷银油。<br>
+                            &nbsp;&nbsp;&nbsp;3、产品可以实现开放式、带透明耳帽的佩戴方式。<br>
+                            &nbsp;&nbsp;&nbsp;4、电池容量60mA，通话时长可达3个半小时以上。两麦降噪，享受更高清声<br>
+                            &nbsp;&nbsp;&nbsp;源。<br>
+                            &nbsp;&nbsp;&nbsp;5、蓝牙芯片（CSR：8620）蓝牙版本V4.0+EDR，支持A2DP+HFP1.6、 <br>
+                            &nbsp;&nbsp;&nbsp;Micro5p接口<br>
+                            <br>
+                            <img src="素材/momo/作品/1.jpg" style="width: 442px;height: 270px;margin-left:12px;display:inline;">
+                            <img src="素材/momo/作品/2.jpg" style="width: 442px;height: 270px;margin-left:12px;display:inline;">
+                            <img src="素材/momo/作品/3.jpg" style="width: 442px;height: 270px;margin-left:12px;display:inline;">
+                            <img src="素材/momo/作品/4.jpg" style="width: 442px;height: 270px;margin-left:12px;display:inline;">
+                        </div>
+                        <img src="素材/momo/作品/close.png" alt="" id="img_close" style="z-index:300;">
+                        <div class="opacity" id="up_window">
+                            <div class="large_window">
+                            </div>
+                        </div>
+
+
+                        <!--弹出框-->
+
+
+                        <!--<span class="als-next"><img src="/busy/素材/momo/学生/r.png" alt="next" title="next" /></span>-->
+                        <span class="als-next" style="min-height: 100px;min-width: 100px;background-size: cover;"></span>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+        <section class="sail6">
+            <a name="sail6"></a>
+            <br><br><br>
+            <p  class="pone">NEWS AND  NOTICE </p>
+            <p  class="ptow"> 新闻和通知</p><br>
+            <hr class="pthree">
+            <br>
+
+            <!--=================================================================================引入的插件-->
+
+            <div class="htmleaf-container">
+                <div class="poster-main" id="carousel" data-setting='{
+							"width":1000,
+							"height":450,
+							"posterWidth":600,
+							"posterHeight":434,
+							"scale":0.8,
+							"speed":2000,
+							"autoPlay":true,
+							"delay":3000,
+							"verticalAlign":"middle"
+							}'>
+                    <!--<div class="poster-btn poster-prev-btn"></div>-->
+
+                    <div class="poster-btn bottonleft"></div>
+                    <div class="poster-btn bottonright"></div>
+                    <ul class="poster-list">
+                        <li class="poster-item"><a href="#"><img src="素材/momo/方向/新闻5.jpg" alt="" width="100%" /></a></li>
+                        <li class="poster-item"><a href="#"><img src="素材/momo/方向/新闻2.jpg" alt="" width="100%" /></a></li>
+                        <li class="poster-item"><a href="#"><img src="素材/momo/方向/新闻1.jpg" alt="" width="100%" /></a></li>
+                        <li class="poster-item"><a href="#"><img src="素材/momo/方向/新闻5.jpg" alt="" width="100%" /></a></li>
+                        <li class="poster-item"><a href="#"><img src="素材/momo/方向/新闻2.jpg" alt="" width="100%" /></a></li>
+                        <!--<li class="poster-item"><a href="#"><img src="js/新闻/201609211657/images/666.jpg" alt="" width="100%" /></a></li>-->
+                    </ul>
+                    <!--<div class="poster-btn poster-next-btn"></div>-->
+                </div>
+
+            </div>
+
+            <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+            <script>window.jQuery || document.write('<script src="js/新闻/201609211657/js/jquery-1.9.1.min.js"><\/script>')</script>
+            <script src="js/新闻/201609211657/js/Carousel.js"></script>
+            <script type="text/javascript">
+                $(function(){
+                    Carousel.init($("#carousel"));
+                    $("#carousel").init();
+                });
+            </script>
+            <!--=================================================================================引入的插件-->
+        </section>
+
+        <section class="sail7">
+
+
+
+
+            <div class="cover opacity">
+                <a name="sail7" ></a>
+            </div>
+
+            <div class="contact">
+                <br><br><br>
+                <p  class="pone">CONTACT   &nbsp;&nbsp;  US </p>
+                <p  class="ptow">联系我们</p><br>
+                <hr class="pthree">
+                <br>
+                <p class="a">
+                    <span>姓名:</span> <input type="text" class="first" >
+                </p>
+                <p class="a b">
+                    <span>电话:</span> <input type="text" class="first">
+                </p>
+                <p class="c">
+                    <!--<span>想说的话:</span> <textarea name="" id="" cols="30" rows="7" class="third"></textarea>-->
+                    <span>想说的话:</span>
+                    <input type="text" class="first">
+                </p>
+                <p class="d" >
+                </p>
+                <br><br><br>
+                <p class="e">
+                    电话：0516-83591999 邮箱：uedesign@cumt.com <br>
+                    地址：江苏省徐州市大学路1号中国矿业大学南湖校区
+                </p>
+            </div>
+            <!--<a href="#comeon" style="background: url('/busy/素材/momo/联系/xiayige.png')center;background-size:cover;width: 80px;height: 80px;"></a>-->
+            <a href="#comeon" id="comeon1"></a>
+            <p class="bottom">
+                Copyright ? 2016. Collect from UEDESIGN. All rights reserved
+                中国矿业大学艺术与设计学院体验与服务工作室
+            </p>
+            <!--<img src="/busy/工作室加教师 - 副本.jpg" alt="">-->
+
+        </section>
+    </div>
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script>
+        function codefans(){
+            var car=document.getElementById("spinner");
+            car.style.display="none";
+        }
+        setTimeout("codefans()",8000);//3秒
+    </script>
+    <script>
+//        var obj = document.getElementById("deliver");
+//        obj.onmouseover=function(){
+//          obj.style.background="url(/busy/素材/momo/联系/按钮.png) center center";
+//        };
+//
+//        obj.onmouseout=function(){
+//            obj.style.background="url(/busy/素材/momo/联系/1.png) center center";
+//        };
+    </script>
+    <script>
+        window.onload = function(){
+            var close = document.getElementById('close');
+            close.onclick = function(){
+                var love = document.getElementById("sampleMovie");
+                var voice = document.getElementById("sampleMovie");
+                var span1 =document.getElementById("span1");
+                var span2 =document.getElementById("span2");
+                love.style.display="none";
+                voice.muted=true;
+                close.style.display="none";
+                span1.style.display="inline-block";
+                span2.style.display="inline-block";
+            }
+        }
+
+    </script>
+    <script>
+    $('.og_next').click(function(){
+        $('#stu1').attr("src","素材/momo/学生/9.jpg");
+        $('#stu2').attr("src","素材/momo/学生/5.jpg");
+        $('#stu3').attr("src","素材/momo/学生/6.jpg");
+        $('#stu4').attr("src","素材/momo/学生/1.jpg");
+        $('#stu5').attr("src","素材/momo/学生/8.jpg");
+        $('#stu6').attr("src","素材/momo/学生/4.jpg");
+        $('#stu7').attr("src","素材/momo/学生/10.jpg");
+        $('#stu8').attr("src","素材/momo/学生/3.jpg");
+        $('#stu9').attr("src","素材/momo/学生/7.jpg");
+        $('#stu10').attr("src","素材/momo/学生/2.jpg");
+    })
+
+
+    $('.og_prev').click(function(){
+        $('#stu1').attr("src","素材/momo/学生/5.jpg");
+        $('#stu2').attr("src","素材/momo/学生/7.jpg");
+        $('#stu3').attr("src","素材/momo/学生/8.jpg");
+        $('#stu4').attr("src","素材/momo/学生/6.jpg");
+        $('#stu5').attr("src","素材/momo/学生/1.jpg");
+        $('#stu6').attr("src","素材/momo/学生/3.jpg");
+        $('#stu7').attr("src","素材/momo/学生/7.jpg");
+        $('#stu8').attr("src","素材/momo/学生/2.jpg");
+        $('#stu9').attr("src","素材/momo/学生/10.jpg");
+        $('#stu10').attr("src","素材/momo/学生/4.jpg");
+    })
+</script>
+    <script type="text/javascript">
+    $(function(){
+        linum = $('.mainlist li').length;//图片数量
+        w = linum/2 * 232;//ul宽度
+        $('.piclist').css('width', w + 'px');//ul宽度
+        $('.swaplist').html($('.mainlist').html());//复制内容
+
+        $('.og_next').click(function(){
+
+            if($('.swaplist,.mainlist').is(':animated')){
+                $('.swaplist,.mainlist').stop(true,true);
+            }
+
+            if($('.mainlist li').length>5){//多于4张图片
+                ml = parseInt($('.mainlist').css('left'));//默认图片ul位置
+                sl = parseInt($('.swaplist').css('left'));//交换图片ul位置
+                if(ml<=0 && ml>w*-1){//默认图片显示时
+
+                    $('.swaplist').css({left: '1160px'});//交换图片放在显示区域右侧
+                    $('.mainlist').animate({left: ml - 1160 + 'px'},'slow');//默认图片滚动
+                    if(ml==(w-1160)*-1){//默认图片最后一屏时
+                        $('.swaplist').animate({left: '0px'},'slow');//交换图片滚动
+                    }
+                }else{//交换图片显示时
+                    $('.mainlist').css({left: '1160px'})//默认图片放在显示区域右
+                    $('.swaplist').animate({left: sl - 1160 + 'px'},'slow');//交换图片滚动
+                    if(sl==(w-1160)*-1){//交换图片最后一屏时
+                        $('.mainlist').animate({left: '0px'},'slow');//默认图片滚动
+                    }
+                }
+            }
+        })
+        $('.og_prev').click(function(){
+
+            if($('.swaplist,.mainlist').is(':animated')){
+                $('.swaplist,.mainlist').stop(true,true);
+            }
+
+            if($('.mainlist li').length>5){
+                ml = parseInt($('.mainlist').css('left'));
+                sl = parseInt($('.swaplist').css('left'));
+                if(ml<=0 && ml>w*-1){
+                    $('.swaplist').css({left: w * -1 + 'px'});
+                    $('.mainlist').animate({left: ml + 1160 + 'px'},'slow');
+                    if(ml==0){
+                        $('.swaplist').animate({left: (w - 1160) * -1 + 'px'},'slow');
+                    }
+                }else{
+                    $('.mainlist').css({left: (w - 1160) * -1 + 'px'});
+                    $('.swaplist').animate({left: sl + 1160 + 'px'},'slow');
+                    if(sl==0){
+                        $('.mainlist').animate({left: '0px'},'slow');
+                    }
+                }
+            }
+        });
+
+        $('.goodlist').hover(function(){
+            $('.exchange',this).show();
+        },function(){
+            $('.exchange',this).hide();
+        });
+
+    });
+    </script>
+
+
+    <!--作品插件展示-->
+    <script type="text/javascript" src="js/作品/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/作品/js/jquery.als-1.7.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $("#lista1").als({
+                visible_items: 6,
+                scrolling_items: 6,
+                orientation: "horizontal",
+                circular: "yes",
+                autoscroll: "no",
+                interval: 5000,
+                speed: 500,
+                easing: "linear",
+                direction: "right",
+                start_from: 0
+            });
+        });
+    </script>
+    <!--作品插件展示-->
+
+<!--教师页面的脚本-->
+    <script>
+        var car1=document.getElementById("s_one");
+        var car2=document.getElementById("s_tow");
+        var car3=document.getElementById("s_three");
+        var car4=document.getElementById("s_four");
+        var car5=document.getElementById("s_five");
+        var car6=document.getElementById("s_six");
+        var car7=document.getElementById("s_seven");
+        var car8=document.getElementById("s_eight");
+        car1.onmouseover=function(){
+            car1.style.background="素材/momo/教师/one.jpg";
+        }
+        car1.onclick = function () {
+            if (car2.style.display == "none") {
+                car2.style.display = "inline-block";
+                car3.style.display = "none";
+                car5.style.display = "none";
+                car7.style.display = "none";
+                car1.style.marginLeft = "40";
+
+                car1.style.background="素材/momo/教师/1.jpg";
+            } else if (car2.style.display == "inline-block") {
+                car2.style.display = "none";
+                car1.style.marginLeft = "80px";
+                car3.style.display = "inline-block";
+                car5.style.display = "inline-block";
+                car7.style.display = "inline-block";
+//                car1.src="素材/momo/教师/1.jpg";
+                car1.style.background="素材/momo/教师/2.jpg";
+            }
+        }
+
+        car3.onclick = function () {
+            if (car2.style.display == "none") {
+                car2.style.display = "inline-block";
+//                car3.style.display = "none";
+                car1.style.display = "none";
+                car5.style.display = "none";
+                car7.style.display = "none";
+
+//                car1.src="素材/momo/教师/3.jpg";
+//                car1.style.background="素材/momo/教师/2.jpg";
+                car3.style.background="素材/momo/教师/3.jpg";
+                car3.style.marginLeft = "80px";
+            } else if (car2.style.display == "inline-block") {
+                car2.style.display = "none";
+                car1.style.marginLeft = "80px";
+                car3.style.display = "inline-block";
+                car1.style.display = "inline-block";
+                car5.style.display = "inline-block";
+                car7.style.display = "inline-block";
+//                car1.src="素材/momo/教师/2.jpg";
+                car1.style.background="素材/momo/教师/1.jpg";
+                car3.style.marginLeft = "0px";
+            }
+        }
+
+
+
+        car5.onclick = function () {
+            if (car2.style.display == "none") {
+                car2.style.display = "inline-block";
+//                car5.style.display = "none";
+                car1.style.display = "none";
+                car3.style.display = "none";
+                car7.style.display = "none";
+//                car1.src="素材/momo/教师/2.jpg";
+                car1.style.background="素材/momo/教师/2.jpg";
+                car5.style.marginLeft = "80px";
+            } else if (car2.style.display == "inline-block") {
+                car2.style.display = "none";
+                car1.style.marginLeft = "80px";
+                car3.style.display = "inline-block";
+                car1.style.display = "inline-block";
+                car5.style.display = "inline-block";
+                car7.style.display = "inline-block";
+                car5.style.marginLeft = "0px";
+            }
+        }
+
+        car7.onclick = function () {
+            if (car2.style.display == "none") {
+                car2.style.display = "inline-block";
+//                car7.style.display = "none";
+                car1.style.display = "none";
+                car3.style.display = "none";
+                car5.style.display = "none";
+                car7.style.marginLeft = "80px";
+//                car1.src="素材/momo/教师/4.jpg";
+                car1.style.background="素材/momo/教师/4.jpg";
+            } else if (car2.style.display == "inline-block") {
+                car2.style.display = "none";
+                car1.style.marginLeft = "80px";
+                car7.style.display = "inline-block";
+                car3.style.display = "inline-block";
+                car1.style.display = "inline-block";
+                car5.style.display = "inline-block";
+                car7.style.marginLeft = "0px";
+            }
+        }
+
+
+
+    </script>
+<!--教师页面的脚本-->
+
+<!--对首页按钮，导航栏监听的脚本-->
+    <script>
+        window.onscroll = function(){
+            var t = document.documentElement.scrollTop || document.body.scrollTop;
+            var span1 =document.getElementById("span1");
+            var span2 =document.getElementById("span2");
+            var love = document.getElementById("sampleMovie");
+            if(love.style.display=="none")
+            {
+                if(t>320 )
+                {
+                    span1.style.display="none";
+                    span2.style.display="none";
+                }else{
+                    span1.style.display="inline-block";
+                    span2.style.display="inline-block";
+                }
+            }
+//            先记录下我遇到的问题
+//            第一 如果我写了两个（多个）window.onscroll  是没有一个被执行的
+//                导致本来正常工作的按钮，也跟着失效了
+//            现在，只使用一次window.onscroll 按钮正常工作  导航栏依旧失效
+            var all=document.getElementsByTagName("li");
+            var them=document.getElementsByTagName("a");
+            var nav=document.getElementsByTagName("nav");
+            nav_monitor(0,540,all[0],them[0]);
+            nav_monitor(540,1390,all[1],them[1]);
+            nav_monitor(1390,2990,all[2],them[2]);
+            nav_monitor(3090,3750,all[3],them[3]);
+            nav_monitor(3750,4890,all[5],them[5]);
+            nav_monitor(4890,5790,all[7],them[7]);
+            nav_monitor(5790,6666,all[8],them[8]);
+            function nav_monitor (nav_front , nav_end , nav_bigcontainer , nav_smallcontainer)
+            {
+                if(t>=nav_front && t<nav_end ){
+                    nav_bigcontainer.style.backgroundColor = "white";
+                    nav_smallcontainer.style.color = "#00C2A8";
+                }else{
+                    nav_bigcontainer.style.backgroundColor = "#00C2A8";
+                    nav_smallcontainer.style.color = "white";
+                }
+            }
+
+
+//#ozero
+//               #one{  visibility: hidden;}
+//        #tow{  visibility: hidden;}
+//        #four{  visibility: hidden;}
+//        #five{  visibility: hidden;}
+//        #six{  visibility: hidden;}
+//        #seven{  visibility: hidden;}
+//        #eight{  visibility: hidden;}
+//
+            var ozero = document.getElementById("ozero");
+            var one = document.getElementById("one");
+            var tow = document.getElementById("tow");
+            var four = document.getElementById("four");
+            var five = document.getElementById("five");
+            var six = document.getElementById("six");
+            var seven = document.getElementById("seven");
+            var eight = document.getElementById("eight");
+            if(t>0){
+                nav[0].style.top=0;
+                nav[0].style.border="none";
+
+
+                one.style.visibility="visible";
+                tow.style.visibility="visible";
+                four.style.visibility="visible";
+                five.style.visibility="visible";
+                six.style.visibility="visible";
+                ozero.style.visibility="visible";
+                eight.style.visibility="visible";
+                seven.style.visibility="visible";
+            }else{
+                nav[0].style.top="70px";
+                one.style.visibility="hidden";
+                tow.style.visibility="hidden";
+                four.style.visibility="hidden";
+                five.style.visibility="hidden";
+                six.style.visibility="hidden";
+                ozero.style.visibility="hidden";
+                eight.style.visibility="hidden";
+                seven.style.visibility="hidden";
+
+            }
+        }
+    </script>
+<!--对首页按钮的脚本-->
+
+<!--案列的弹出窗口-->
+    <script>
+        var boat=document.getElementById("an_beat");
+        var an_window = document.getElementById("an_window");
+        var up_window = document.getElementById("up_window");
+        var img_close = document.getElementById("img_close");
+        boat.onclick = function(){
+            up_window.style.display="inline-block";
+            an_window.style.display="inline-block";
+            img_close.style.display="inline-block";
+            img_close.style.zIndex="300";
+        }
+
+        img_close.onclick = function(){
+            up_window.style.display="none";
+            an_window.style.display="none";
+            img_close.style.display="none";
+        }
+    </script>
+<!--案列的弹出窗口-->
+</body>
+</html>
